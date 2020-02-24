@@ -1,6 +1,6 @@
-#import json
-#import datetime
-#
+import json
+import datetime
+
 def welcome():
     name = str(input('Please type your name: '))
     surname = str(input('Please type your surname: '))
