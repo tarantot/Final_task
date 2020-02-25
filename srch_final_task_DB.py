@@ -14,7 +14,7 @@ def srch_final_task_DB():
         regex = re.compile(result)
         match = re.search(regex, inputfile)
         if match:
-            print('Found "{}" in "{}"'.format(result, inputfile))
+            print('Found "{}" in "{}"'.format(result))
             text_pos = match.span()
             print(text[match.start():match.end()])
             resultfile.write(results)
