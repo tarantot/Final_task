@@ -8,15 +8,14 @@ def srch_final_task_DB():
     resultfile = (results_filename, mode='w', encoding='UTF-8')
     mytext = inputfile.read()
 
-    results = [srch]
+    srch = srch.casefold()
+    results = re.findall(srch, mytext)
     
-    for result in results:
-        regex = re.compile(result)
-        match = re.search(regex, inputfile)
+    for srch in results:
+        regex = re.compile(srch)
+        match = re.finditer(regex, inputfile)
         if match:
-            print('Found "{}" in "{}"'.format(result, input_filename))
-            text_pos = match.span()
-            print(text[match.start():match.end()])
+            print('Found "{srch}" at {begin}:{end}'.format(srch, begin=match.start(), end=match.end())
             resultfile.write(results)
         else:
-            print('Did not find "{}"'.format(srch))
+            print('Can not find "{}" in "{}"!'.format(srch, input_filename))
